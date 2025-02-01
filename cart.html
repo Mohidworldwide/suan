@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Suan</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: cyan;
+            color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .cart-items {
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-item img {
+            width: 50px;
+            height: auto;
+        }
+
+        .cart-item .name {
+            font-size: 18px;
+        }
+
+        .cart-item .price {
+            color: red;
+            font-size: 18px;
+        }
+
+        .remove-button {
+            background-color: red;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .cart-footer {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+        }
+
+        .checkout-button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">Suan</div>
+        <nav>
+            <ul>
+                <li><a href="buisness.html">Home</a></li>
+                <li><a href="cart.html">Your Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Cart Items Section -->
+    <section class="cart-items" id="cart-items">
+        <h2>Your Cart</h2>
+
+        <!-- Example Cart Item (it will be generated dynamically) -->
+        <div class="cart-item" id="cart-item-1">
+            <img src="jojo.jpg" alt="Jojo Sour Dip">
+            <div class="name">Jojo Sour Dip Flavor 1 - 100g</div>
+            <div class="price">PKR 300</div>
+            <button class="remove-button" onclick="removeFromCart(1)">Remove</button>
+        </div>
+
+        <!-- You can add more items dynamically using JavaScript -->
+
+        <div class="cart-footer">
+            <div id="total-price">Total: PKR 300</div>
+            <button class="checkout-button">Proceed to Checkout</button>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div>About Us | Contact | FAQ | Terms & Conditions</div>
+        <div>Follow Us: [Social Media Links]</div>
+    </footer>
+
+    <script>
+        // Simulate the cart data (this can be retrieved from localStorage or a database)
+        let cart = [
+            { id: 1, name: 'Jojo Sour Dip Flavor 1 - 100g', price: 300, image: 'jojo.jpg' }
+        ];
+
+        // Function to render cart items dynamically
+        function renderCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const totalPriceElement = document.getElementById('total-price');
+            
+            // Clear the cart items before rendering
+            cartItemsContainer.innerHTML = '<h2>Your Cart</h2>';
+            
+            let totalPrice = 0;
+            
+            // Loop through cart array to generate item HTML
+            cart.forEach((item, index) => {
+                totalPrice += item.price;
+                
+                const cartItemElement = document.createElement('div');
+                cartItemElement.classList.add('cart-item');
+                cartItemElement.id = `cart-item-${item.id}`;
+                
+                cartItemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="name">${item.name}</div>
+                    <div class="price">PKR ${item.price}</div>
+                    <button class="remove-button" onclick="removeFromCart(${item.id})">Remove</button>
+                `;
+                
+                cartItemsContainer.appendChild(cartItemElement);
+            });
+            
+            totalPriceElement.innerHTML = `Total: PKR ${totalPrice}`;
+        }
+
+        // Function to remove item from the cart
+        function removeFromCart(itemId) {
+            // Find the index of the item to remove
+            const itemIndex = cart.findIndex(item => item.id === itemId);
+            
+            if (itemIndex > -1) {
+                // Remove the item from the cart array
+                cart.splice(itemIndex, 1);
+            }
+            
+            // Re-render the cart items
+            renderCartItems();
+        }
+
+        // Initially render the cart items when the page loads
+        renderCartItems();
+    </script>
+
+</body>
+</html>

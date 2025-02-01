@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suan - Online Store</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: cyan;
+            color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .search-bar {
+            padding: 8px;
+            width: 250px;
+        }
+
+        .banner {
+            text-align: center;
+            background-color: red;
+            padding: 50px;
+        }
+
+        .banner h2 {
+            color: white;
+            font-size: 36px;
+        }
+
+        .cta {
+            background-color: white;
+            color: red;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product-item {
+            background-color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-item img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product-item .price {
+            color: red;
+            font-size: 18px;
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .filters {
+            padding: 20px;
+            background-color: white;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Cart Button Styles */
+        .cart-button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">Suan</div>
+        <input type="text" class="search-bar" placeholder="Search for products...">
+        <nav>
+            <ul>
+                <li><a href="#">Jojo Sour Dips</a></li>
+                <li><a href="#">Zombie Candy</a></li>
+                <li><a href="#">Cadbury Mini Fingers</a></li>
+                <li><a href="#">Bundles</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="cart.html"><button class="cart-button">Cart</button></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <h2>Welcome to Suan! Discover Our Sweet Deals</h2>
+        <a href="shopnow.html">
+        <button class="cta">Shop Now</button>
+        </a>
+    </section>
+
+    <!-- Products Grid Section -->
+    <section class="products">
+        <h3>Jojo Sour Dips - Single Packs</h3>
+        <div class="product-item">
+            <img src="jojo.jpg" alt="Jojo Sour Dip">
+            <p>Jojo Sour Dip Flavor 1 - 100g</p>
+            <span class="price">PKR 40</span>
+            <button>Add to Cart</button>
+        </div>
+        <!-- Add more products here -->
+    </section>
+
+    <!-- Sorting and Filtering Section -->
+    <section class="filters">
+        <h4>Filter By:</h4>
+        <form>
+            <label for="price">Price</label>
+            <input type="range" id="price" min="0" max="1000" step="100" value="500">
+        </form>
+        <button>Sort by Popularity</button>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div>About Us | Contact | FAQ | Terms & Conditions</div>
+        <div>Follow Us: [Social Media Links]</div>
+    </footer>
+
+</body>
+</html>

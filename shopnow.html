@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products - Suan</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: cyan;
+            color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .search-bar {
+            padding: 8px;
+            width: 250px;
+        }
+
+        /* Cart Notification */
+        .cart-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        /* Products Grid Section */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product-item {
+            background-color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-item img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product-item .price {
+            color: red;
+            font-size: 18px;
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cart Notification (Hidden by default) -->
+    <div class="cart-notification" id="cart-notification">
+        Items in Cart: <span id="cart-count">0</span>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">Suan</div>
+        <input type="text" class="search-bar" placeholder="Search for products...">
+        <nav>
+            <ul>
+                <li><a href="jojo-sour-dips.html">Jojo Sour Dips</a></li>
+                <li><a href="zombie-candy.html">Zombie Candy</a></li>
+                <li><a href="cadbury-mini-fingers.html">Cadbury Mini Fingers</a></li>
+                <li><a href="buisness.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Products Grid Section -->
+    <section class="products">
+        <h3>Our Products</h3>
+        
+        <!-- Product Item 1: Jojo Sour Dip -->
+        <div class="product-item">
+            <img src="jojo1.png" alt="Jojo Sour Dip">
+            <p>Jojo Sour Dip - Cola (100g)</p>
+            <span class="price">PKR 40</span>
+            <button onclick="addToCart()">Add to Cart</button>
+        </div>
+
+        <!-- Product Item 2: Jojo Sour Dip -->
+        <div class="product-item">
+            <img src="jojo2.png" alt="Jojo Sour Dip">
+            <p>Jojo Sour Dip - green apple (100g)</p>
+            <span class="price">PKR 40</span>
+            <button onclick="addToCart()">Add to Cart</button>
+        </div>
+
+        <div class="product-item">
+            <img src="jojo3.png" alt="Jojo Sour Dip">
+            <p>Jojo Sour Dip - Strawberry (100g)</p>
+            <span class="price">PKR 40</span>
+            <button onclick="addToCart()">Add to Cart</button>
+        </div>
+
+        <!-- Product Item 3: Zombie Candy -->
+        <div class="product-item">
+            <img src="zombie-candy.png" alt="Zombie Candy">
+            <p>Zombie Candy - 150g</p>
+            <span class="price">PKR 20</span>
+            <button onclick="addToCart()">Add to Cart</button>
+        </div>
+
+        <!-- Product Item 4: Cadbury Mini Fingers -->
+        <div class="product-item">
+            <img src="cadbury.PNG" alt="Cadbury Mini Fingers">
+            <p>Cadbury Mini Fingers - packet</p>
+            <span class="price">PKR 40</span>
+            <button onclick="addToCart()">Add to Cart</button>
+        </div>
+
+        <!-- Add more products here as needed -->
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div>About Us | Contact | FAQ | Terms & Conditions</div>
+        <div>Follow Us: [Social Media Links]</div>
+    </footer>
+
+    <script>
+        let cartCount = 0;
+
+        function addToCart() {
+            // Increment the cart count
+            cartCount++;
+
+            // Update the cart count on the notification
+            document.getElementById('cart-count').innerText = cartCount;
+
+            // Show the notification
+            const notification = document.getElementById('cart-notification');
+            notification.style.display = 'block';
+
+            // Hide the notification after 2 seconds
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 2000);
+        }
+    </script>
+
+</body>
+</html>
